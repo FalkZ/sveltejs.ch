@@ -1,8 +1,17 @@
-<h1>Zürich</h1>
+<script lang="ts">
+  const content = import.meta.glob(`$events/*.md`, { eager: true });
 
-<blockquote>Next Meetup: [Date] Impact Hub</blockquote>
+  console.log(content);
 
-<a href="https://www.meetup.com/sveltesocietyzurich/">
-  https://www.meetup.com/sveltesocietyzurich/
-</a>
-<h1>Basel</h1>
+  const arrayOfContent = Object.entries(content).map(
+    ([fileName, { attributes, html }]) => {
+      const id = fileName.replace("/src/events/", "").replace(".md", "");
+
+      return { id, attributes, html };
+    }
+  );
+</script>
+
+{#each arrayOfContent as { id, attributes }}
+  <a href="/meetups/{id}">{attributes.title}</a>
+{/each}
