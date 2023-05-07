@@ -1,11 +1,15 @@
+<script lang="ts">
+  import { IconCalendar, IconConfetti, IconBulb } from "@tabler/icons-svelte";
+</script>
+
+<a class="home" href="/">
+  <img src="/svelte-logo.svg" />
+  Society Switzerland
+</a>
 <nav>
-  <a class="home" href="/">
-    <img src="/svelte-logo.svg" />
-    Society Switzerland
-  </a>
-  <a href="/meetups">Meetups</a>
-  <a href="/impressions">Impressions</a>
-  <a href="/learn">Learn</a>
+  <a href="/meetups"><IconCalendar /> Meetups</a>
+  <a href="/impressions"><IconConfetti /> Impressions</a>
+  <a href="/learn"><IconBulb /> Learn</a>
 </nav>
 
 <style>
@@ -23,16 +27,27 @@
   }
 
   .home {
-    display: block;
+    display: flex;
     position: absolute;
-    left: 1em;
+    padding: 1em;
     display: flex;
     align-content: center;
+    top: 0.5em;
   }
 
   .home img {
     height: 2.2em;
-
     margin: -0.5em 1em;
+  }
+
+  @media (max-width: 800px) {
+    nav {
+      padding-top: 2.5em;
+    }
+  }
+
+  :global(.tabler-icon) {
+    position: relative;
+    top: 0.3em;
   }
 </style>

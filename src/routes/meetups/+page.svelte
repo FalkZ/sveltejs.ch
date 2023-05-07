@@ -1,17 +1,30 @@
 <script lang="ts">
-  const content = import.meta.glob(`$events/*.md`, { eager: true });
-
-  console.log(content);
-
-  const arrayOfContent = Object.entries(content).map(
-    ([fileName, { attributes, html }]) => {
-      const id = fileName.replace("/src/events/", "").replace(".md", "");
-
-      return { id, attributes, html };
-    }
-  );
+  import { allEvents } from "$events";
+  import EventPreview from "$lib/components/EventPreview.svelte";
 </script>
 
-{#each arrayOfContent as { id, attributes }}
-  <a href="/meetups/{id}">{attributes.title}</a>
-{/each}
+<div class="center">
+  <div class="heading">
+    <h1>Meetups</h1>
+    <p>The next events to take part in!</p>
+  </div>
+  <table>
+    {#each allEvents as event}
+      <EventPreview {event} />
+    {/each}
+  </table>
+</div>
+
+<style>
+  .heading {
+    padding: 1em;
+  }
+  table {
+    border-collapse: collapse;
+  }
+  .center {
+    display: table;
+    width: auto;
+    margin: 0 auto;
+  }
+</style>

@@ -1,6 +1,12 @@
-<button>
-  <slot />
-</button>
+<script lang="ts">
+  export let href = "";
+</script>
+
+<a {href}>
+  <button>
+    <slot />
+  </button>
+</a>
 
 <style>
   button {
@@ -13,5 +19,9 @@
     border: none;
     display: block;
     font-weight: 600;
+  }
+
+  a {
+    text-decoration: none;
   }
 </style>

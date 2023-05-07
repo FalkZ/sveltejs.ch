@@ -1,10 +1,11 @@
 <script>
   import Button from "$lib/components/Button.svelte";
   import Hero from "$lib/components//Hero.svelte";
+  import Boxes from "$lib/components/Boxes.svelte";
 </script>
 
 <Hero />
-<div class="content">
+<Boxes>
   <div>
     <h2>What is Svelte?</h2>
     <p>
@@ -20,26 +21,9 @@
   <div>
     <h2>About Svelte Society Switzerland</h2>
   </div>
-</div>
+</Boxes>
 
 <style>
-  .content {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-top: 40px;
-    padding: 20px;
-    gap: 20px;
-  }
-
-  .content > * {
-    border-radius: 10px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-    flex: 1 1 400px;
-    margin: 5px;
-    padding: 0 1em;
-  }
-
   h2 {
     font-weight: 500;
   }

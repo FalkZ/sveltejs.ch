@@ -5,9 +5,7 @@
 </script>
 
 <div>
-  <Replize raw={LogoRaw} width="30vw" height="40vh">
-    <Logo />
-  </Replize>
+  <Logo />
   <h1>Welcome to Svelte Society Switzerland</h1>
 </div>
 

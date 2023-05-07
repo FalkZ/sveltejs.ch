@@ -4,5 +4,4 @@ import { plugin as markdown, Mode } from "vite-plugin-markdown";
 
 export default defineConfig({
   plugins: [sveltekit(), markdown({ mode: [Mode.HTML] })],
-  optimizeDeps: { exclude: ["replicant"] },
 });
